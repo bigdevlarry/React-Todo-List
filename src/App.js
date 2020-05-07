@@ -51,7 +51,10 @@ export class App extends Component {
     const data = { title, completed: false };
 
     fetch('https://jsonplaceholder.typicode.com/todos', {
-      method: 'POST',
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(data),
     })
       .then(response => response.json())
@@ -64,6 +67,8 @@ export class App extends Component {
       .catch((error) => {
         console.error('Error:', error);
       });
+
+
   }
 
   render() {

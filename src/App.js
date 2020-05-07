@@ -32,10 +32,7 @@ export class App extends Component {
   removeTodo = (id) => {
 
     fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      }
+      method: 'DELETE'
     })
       .then(response => response.json())
       .then(data => {
@@ -54,10 +51,7 @@ export class App extends Component {
     const data = { title, completed: false };
 
     fetch('https://jsonplaceholder.typicode.com/todos', {
-      method: 'POST', // or 'PUT'
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      method: 'POST',
       body: JSON.stringify(data),
     })
       .then(response => response.json())
@@ -70,8 +64,6 @@ export class App extends Component {
       .catch((error) => {
         console.error('Error:', error);
       });
-
-
   }
 
   render() {
